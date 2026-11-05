@@ -50,7 +50,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose, set
               Os dados fornecidos têm finalidade única e restrita de:
             </p>
             <ul className="list-disc pl-5 mt-1 space-y-1">
-              <li>Organizar a escala e disponibilidade de atendimento dos médicos oftalmologistas;</li>
+              <li>Organizar a escala e disponibilidade de atendimento dos profissionais da clínica;</li>
               <li>Enviar lembretes e instruções prévias necessárias para exames via WhatsApp ou ligação telefônica;</li>
               <li>Emitir protocolo de atendimento e garantir que não ocorram reservas duplicadas para o mesmo horário.</li>
             </ul>
@@ -59,7 +59,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose, set
           <div>
             <h4 className="font-bold text-slate-900 text-sm mb-1">3. Não Compartilhamento com Terceiros</h4>
             <p>
-              O Instituto de Olhos de Cafelândia não comercializa, não aluga e não compartilha dados de pacientes com empresas de marketing, publicidade ou quaisquer terceiros não autorizados.
+              O Instituto de Olhos Cafelândia não comercializa, não aluga e não compartilha dados de pacientes com empresas de marketing, publicidade ou quaisquer terceiros não autorizados.
             </p>
           </div>
 

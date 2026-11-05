@@ -29,7 +29,7 @@ export const About: React.FC = () => {
           {/* Story & Commitments */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              O <strong className="text-slate-900 font-semibold">Instituto de Olhos de Cafelândia</strong> nasceu 
+              O <strong className="text-slate-900 font-semibold">Instituto de Olhos Cafelândia</strong> nasceu 
               com a missão de oferecer à população de Cafelândia e municípios vizinhos uma clínica oftalmológica 
               de referência, combinando tecnologia diagnóstica, consultórios modernos e profissionais comprometidos 
               com o bem-estar visual de cada paciente.
@@ -38,7 +38,7 @@ export const About: React.FC = () => {
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Entendemos que a visão é um dos sentidos mais preciosos da vida humana. Por isso, desde a primeira consulta
               preventiva na infância até o acompanhamento de adultos e idosos, priorizamos escuta atenta, explicações claras
-              e condutas médicas embasadas nas melhores evidências científicas.
+              e condutas dedicadas ao cuidado visual integral.
             </p>
 
             {/* 4 Pillars Grid */}
@@ -49,7 +49,7 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Atendimento Humanizado</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">Tempo e paciência para ouvir suas queixas e sanar dúvidas.</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Atenção e dedicação para ouvir suas necessidades e sanar dúvidas.</p>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Rigor Técnico e Ética</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">Profissionais qualificados com registro em conselho médico.</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Profissionais qualificados com atuação especializada.</p>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Estrutura Completa</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">Consultórios equipados para exames refrativos e clínicos.</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Consultórios equipados para exames e avaliações visuais.</p>
                 </div>
               </div>
 
@@ -96,7 +96,7 @@ export const About: React.FC = () => {
               </div>
               <div className="flex items-start sm:items-center gap-2.5 text-xs text-slate-700">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5 sm:mt-0" />
-                <span>Prontuário digital seguro com histórico completo de evolução e exames</span>
+                <span>Atendimento organizado e com hora marcada para sua conveniência</span>
               </div>
             </div>
           </div>
@@ -105,9 +105,10 @@ export const About: React.FC = () => {
           <div className="lg:col-span-5 space-y-3 sm:space-y-4">
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 aspect-16/10 w-full">
               <img
-                src="/src/assets/images/ophthalmic_diagnostic_equipment_1793846214636.jpg"
-                alt="Ambiente clínico e equipamentos de alta precisão do Instituto de Olhos de Cafelândia"
-                referrerPolicy="no-referrer"
+                src="/images/ophthalmic_diagnostic_equipment_1793846214636.jpg"
+                alt="Ambiente clínico e equipamentos do Instituto de Olhos Cafelândia"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -117,18 +118,18 @@ export const About: React.FC = () => {
               <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/70">
                 <p className="text-[10px] sm:text-[11px] font-semibold uppercase text-blue-700 tracking-wider">Espaço da Clínica</p>
                 <p className="text-xs sm:text-sm font-semibold text-slate-900 mt-0.5">Consultório Moderno</p>
-                <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Iluminação médica e aparelhos oftálmicos de ponta.</p>
+                <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Iluminação adequada e equipamentos diagnósticos precisos.</p>
               </div>
 
               <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/70">
                 <p className="text-[10px] sm:text-[11px] font-semibold uppercase text-blue-700 tracking-wider">Localização</p>
                 <p className="text-xs sm:text-sm font-semibold text-slate-900 mt-0.5">Centro de Cafelândia</p>
-                <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Fácil estacionamento e acesso na Rua Senador Nereu Ramos.</p>
+                <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Rua Senador Nereu Ramos, 340, Sala 01.</p>
               </div>
             </div>
 
             <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-xs text-blue-900 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2">
-              <span>Espaço preparado para fotografias da clínica real</span>
+              <span>Espaço dedicado ao cuidado da sua visão</span>
               <span className="font-semibold text-blue-700">Cafelândia - PR</span>
             </div>
           </div>

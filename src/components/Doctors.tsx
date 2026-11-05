@@ -14,158 +14,159 @@ export const Doctors: React.FC<DoctorsProps> = ({
   onOpenAdmin,
 }) => {
   return (
-    <section id="medicos" className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-100">
+    <section id="profissionais" className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-100 scroll-mt-10 relative">
+      {/* Anchor alias for existing links */}
+      <span id="medicos" className="absolute -top-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-xs font-semibold text-blue-800 uppercase tracking-widest mb-3">
-              <span>Corpo Clínico</span>
+              <span>Corpo Clínico Especializado</span>
               <span aria-hidden="true" className="text-blue-300">·</span>
-              <span>Dedicação & Ética</span>
+              <span>Saúde e Desenvolvimento Visual</span>
             </div>
             <h2 className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Conheça Nossos Médicos
+              Conheça nossos profissionais
             </h2>
             <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Profissionais preparados para oferecer diagnóstico preciso, orientação responsável e atendimento 
-              oftalmológico cuidadoso para todas as idades.
+              Atendimento especializado, com foco na saúde ocular, avaliação completa e acompanhamento
+              personalizado para crianças, jovens e adultos no Instituto de Olhos Cafelândia.
             </p>
           </div>
 
-          {/* Transparent Notice about Demonstrative Data / Direct Admin Editing */}
+          {/* Transparent Notice / Direct Admin Portal */}
           <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between gap-3 text-xs w-full md:w-auto md:max-w-md shrink-0">
             <div className="min-w-0">
-              <p className="font-semibold text-slate-800 truncate">Campos Editáveis</p>
+              <p className="font-semibold text-slate-800 truncate">Atendimento Especializado</p>
               <p className="text-slate-500 text-[11px] leading-tight">
-                Espaços com dados demonstrativos, editáveis pelo painel.
+                Cuidado dedicado e tecnologia diagnóstica em Cafelândia - PR.
               </p>
             </div>
             <button
               onClick={onOpenAdmin}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors cursor-pointer shrink-0 min-h-[36px]"
-              title="Editar dados dos médicos no painel"
+              title="Acessar painel administrativo"
             >
               <Edit3 className="w-3.5 h-3.5" />
-              <span>Editar</span>
+              <span>Painel</span>
             </button>
           </div>
         </div>
 
-        {/* 2 Individual Doctors Grid */}
+        {/* 2 Individual Profiles Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-          {doctors.map((doctor, index) => (
-            <div
-              key={doctor.id}
-              className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col"
-            >
-              {/* Doctor Header Banner with Photo & Core Identity */}
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-center border-b border-slate-100 bg-gradient-to-r from-blue-50/30 to-white">
-                <div className="relative shrink-0 mx-auto sm:mx-0">
-                  <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden ring-4 ring-white shadow-md bg-slate-100">
-                    <img
-                      src={doctor.photoUrl}
-                      alt={`Fotografia profissional de ${doctor.name}`}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top"
-                    />
+          {doctors.map((doctor) => {
+            const isMaryanne = doctor.id === 'doc-maryanne' || doctor.name.includes('Maryanne');
+            const isHerculino = doctor.id === 'doc-herculino' || doctor.name.includes('Herculino');
+
+            return (
+              <div
+                key={doctor.id}
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col"
+              >
+                {/* Profile Header Banner with Photo & Core Identity */}
+                <div className="p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-center border-b border-slate-100 bg-gradient-to-r from-blue-50/40 via-sky-50/20 to-white">
+                  <div className="relative shrink-0 mx-auto sm:mx-0">
+                    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden ring-4 ring-white shadow-md bg-slate-100">
+                      <img
+                        src={doctor.photoUrl}
+                        alt={`Fotografia profissional de ${doctor.name}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
                   </div>
-                  {doctor.isDemonstrative && (
-                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-900 text-white text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded shadow-xs whitespace-nowrap">
-                      {index === 0 ? 'Doutor 1' : 'Doutora 2'}
+
+                  <div className="flex-1 text-center sm:text-left min-w-0">
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 text-xs font-semibold mb-1.5">
+                      {isMaryanne && (
+                        <>
+                          <span className="bg-sky-100 text-sky-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold">
+                            Neuro-optometria
+                          </span>
+                          <span className="bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold">
+                            Optometria Pediátrica
+                          </span>
+                        </>
+                      )}
+                      {isHerculino && (
+                        <>
+                          <span className="bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold">
+                            Oftalmologia
+                          </span>
+                          <span className="bg-sky-100 text-sky-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold">
+                            Cirurgia de Catarata & Retina
+                          </span>
+                        </>
+                      )}
+                      {!isMaryanne && !isHerculino && (
+                        <span className="text-blue-700 font-semibold">{doctor.title}</span>
+                      )}
+                    </div>
+
+                    <h3 className="font-display text-lg sm:text-2xl font-bold text-slate-900 tracking-tight break-words">
+                      {doctor.name}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1 break-words">
+                      {doctor.specialty}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Profile Details Body */}
+                <div className="p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 flex-1 flex flex-col justify-between">
+                  
+                  <div className="space-y-4 sm:space-y-5">
+                    {/* Apresentação */}
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                        Apresentação
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50/80 p-3.5 rounded-xl border border-slate-100 italic">
+                        "{doctor.bio}"
+                      </p>
+                    </div>
+
+                    {/* Áreas de Atuação */}
+                    <div>
+                      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">
+                        <Award className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                        <span>Áreas de Atuação</span>
+                      </div>
+                      <div className="space-y-2">
+                        {doctor.areasOfExpertise.map((area, idx) => (
+                          <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                            <span className="leading-snug">{area}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action: Schedule directly with this professional */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <span className="text-xs text-slate-500 text-center sm:text-left">
+                      Atendimento no Instituto de Olhos Cafelândia
                     </span>
-                  )}
-                </div>
-
-                <div className="flex-1 text-center sm:text-left min-w-0">
-                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-xs text-blue-700 font-semibold mb-1">
-                    <span>{doctor.title}</span>
-                    <span aria-hidden="true" className="text-slate-300">·</span>
-                    <span className="text-slate-600 font-medium">{doctor.crm}</span>
-                    {doctor.rqe && (
-                      <>
-                        <span aria-hidden="true" className="text-slate-300">·</span>
-                        <span className="text-slate-600 font-medium">{doctor.rqe}</span>
-                      </>
-                    )}
+                    <button
+                      onClick={() => onSelectDoctorForBooking(doctor.id)}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-xl shadow-xs hover:shadow transition-all cursor-pointer min-h-[42px] w-full sm:w-auto"
+                    >
+                      <Calendar className="w-3.5 h-3.5 shrink-0" />
+                      <span>Agendar atendimento</span>
+                    </button>
                   </div>
 
-                  <h3 className="font-display text-lg sm:text-2xl font-bold text-slate-900 tracking-tight break-words">
-                    {doctor.name}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm font-medium text-blue-800 mt-1 break-words">
-                    {doctor.specialty}
-                  </p>
-
-                  {doctor.isDemonstrative && (
-                    <p className="text-[10px] sm:text-[11px] text-amber-700 bg-amber-50 inline-block px-2 py-0.5 rounded mt-2 border border-amber-200/60 max-w-full">
-                      Espaço reservado para o profissional oficial
-                    </p>
-                  )}
                 </div>
               </div>
-
-              {/* Doctor Details Body */}
-              <div className="p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 flex-1 flex flex-col justify-between">
-                
-                <div className="space-y-4 sm:space-y-5">
-                  {/* Bio statement */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                      Apresentação Profissional
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {doctor.bio}
-                    </p>
-                  </div>
-
-                  {/* Education */}
-                  <div>
-                    <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                      <GraduationCap className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                      <span>Formação e Qualificação</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      {doctor.education}
-                    </p>
-                  </div>
-
-                  {/* Areas of Expertise */}
-                  <div>
-                    <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                      <Award className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                      <span>Áreas de Atuação</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {doctor.areasOfExpertise.map((area, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                          <span>{area}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Action: Schedule directly with this doctor */}
-                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                  <span className="text-xs text-slate-500 text-center sm:text-left">
-                    Atendimento em Cafelândia
-                  </span>
-                  <button
-                    onClick={() => onSelectDoctorForBooking(doctor.id)}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-xl shadow-xs hover:shadow transition-all cursor-pointer min-h-[42px] w-full sm:w-auto"
-                  >
-                    <Calendar className="w-3.5 h-3.5 shrink-0" />
-                    <span>Agendar com {doctor.name.split(' ')[0]} {doctor.name.split(' ')[1]}</span>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

@@ -208,7 +208,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   };
 
   const handleCancelAppointment = (id: string) => {
-    if (window.confirm('Tem certeza que deseja cancelar este agendamento no Instituto de Olhos de Cafelândia?')) {
+    if (window.confirm('Tem certeza que deseja cancelar este agendamento no Instituto de Olhos Cafelândia?')) {
       const ok = dataService.cancelAppointment(id);
       if (ok) {
         setCancelFeedback('Agendamento cancelado com sucesso. O horário foi liberado.');
@@ -435,6 +435,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                           <img
                             src={doctor.photoUrl}
                             alt={doctor.name}
+                            loading="lazy"
+                            decoding="async"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover"
                           />
@@ -457,9 +459,11 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                           <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">
                             {doctor.specialty}
                           </p>
-                          <p className="text-[11px] text-slate-400 mt-1">
-                            {doctor.crm}
-                          </p>
+                          {doctor.crm ? (
+                            <p className="text-[11px] text-slate-400 mt-1">
+                              {doctor.crm}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                     );
@@ -793,7 +797,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     Agendamento Confirmado com Sucesso!
                   </span>
                   <h3 className="font-display text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1 break-words">
-                    Aguardamos você no Instituto de Olhos de Cafelândia
+                    Aguardamos você no Instituto de Olhos Cafelândia
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
                     Seu horário foi reservado em nosso sistema. Guarde seu número de protocolo para qualquer consulta ou alteração.
@@ -821,7 +825,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       <strong className="text-slate-800 text-sm">{completedAppointment.patientPhone}</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400 block">Médico:</span>
+                      <span className="text-slate-400 block">Profissional:</span>
                       <strong className="text-slate-800">{completedAppointment.doctorName}</strong>
                     </div>
                     <div>
@@ -846,8 +850,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-2">
                   {/* WhatsApp confirmation */}
                   <a
-                    href={`https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
-                      `Olá! Acabei de agendar uma consulta no Instituto de Olhos de Cafelândia.\n\nProtocolo: ${completedAppointment.protocolCode}\nPaciente: ${completedAppointment.patientName}\nData: ${formatFriendlyDate(completedAppointment.date)} às ${completedAppointment.timeSlot}\nMédico: ${completedAppointment.doctorName}`
+                    href={`https://wa.me/5545999441123?text=${encodeURIComponent(
+                      `Olá! Acabei de agendar um atendimento no Instituto de Olhos Cafelândia.\n\nProtocolo: ${completedAppointment.protocolCode}\nPaciente: ${completedAppointment.patientName}\nData: ${formatFriendlyDate(completedAppointment.date)} às ${completedAppointment.timeSlot}\nProfissional: ${completedAppointment.doctorName}`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

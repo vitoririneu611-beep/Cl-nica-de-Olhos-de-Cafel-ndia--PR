@@ -10,7 +10,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ settings, onBookClick }) => {
   const whatsappUrl = `https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
-    'Olá! Gostaria de mais informações sobre consultas e exames no Instituto de Olhos de Cafelândia.'
+    'Olá! Acessei o site do Instituto de Olhos Cafelândia e gostaria de obter mais informações sobre os atendimentos.'
   )}`;
 
   return (
@@ -43,7 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ settings, onBookClick }) => {
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal">
-              No Instituto de Olhos de Cafelândia, cuidamos da sua saúde visual com atenção,
+              No Instituto de Olhos Cafelândia, cuidamos da sua saúde visual com atenção,
               profissionalismo e atendimento humanizado.
             </p>
 
@@ -93,9 +93,10 @@ export const Hero: React.FC<HeroProps> = ({ settings, onBookClick }) => {
 
               <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xl bg-slate-100 aspect-16/10 sm:aspect-16/11 lg:aspect-4/3 w-full">
                 <img
-                  src="/src/assets/images/hero_ophthalmology_clinic_1793846213304.jpg"
-                  alt="Atendimento oftalmológico humanizado com exame de visão no Instituto de Olhos de Cafelândia"
-                  referrerPolicy="no-referrer"
+                  src="/images/hero_ophthalmology_clinic_1793846213304.jpg"
+                  alt="Atendimento no Instituto de Olhos Cafelândia"
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-cover object-center"
                 />
 
@@ -106,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ settings, onBookClick }) => {
                     <span>Cuidado Integral da Visão</span>
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-white leading-snug">
-                    Consultas e exames completos no centro de Cafelândia
+                    Atendimento humanizado no centro de Cafelândia
                   </p>
                 </div>
               </div>

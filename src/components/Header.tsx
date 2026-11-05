@@ -12,7 +12,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAdmin }) => {
   const navLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre nós', href: '#sobre' },
-    { label: 'Nossos médicos', href: '#medicos' },
+    { label: 'Nossos profissionais', href: '#profissionais' },
     { label: 'Serviços', href: '#servicos' },
     { label: 'Destaques', href: '#flyers' },
     { label: 'Agendamento', href: '#agendamento' },
@@ -30,38 +30,30 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAdmin }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 h-18 sm:h-20">
           
-          {/* Zone 1: Single text element wordmark with bespoke eye logo */}
+          {/* Zone 1: Official Logo and Clinic Wordmark */}
           <a
             href="#inicio"
             onClick={(e) => {
               e.preventDefault();
               handleLinkClick('#inicio');
             }}
-            className="flex items-center gap-2 sm:gap-3 group text-left shrink-0 max-w-[65%] sm:max-w-none"
-            title="Instituto de Olhos de Cafelândia - Página Inicial"
+            className="flex items-center gap-2.5 sm:gap-3 group text-left shrink-0 max-w-[70%] sm:max-w-none"
+            title="Instituto de Olhos Cafelândia - Página Inicial"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-700 to-indigo-950 flex items-center justify-center text-white shadow-sm ring-2 sm:ring-4 ring-blue-50 group-hover:scale-105 transition-transform duration-200 shrink-0">
-              {/* Bespoke clean ophthalmology iris monogram */}
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" fill="#38BDF8" stroke="#ffffff" strokeWidth="1.5" />
-                <circle cx="12" cy="12" r="1" fill="#0B2545" />
-              </svg>
+            <div className="h-10 sm:h-12 w-auto bg-white rounded-xl p-1 border border-slate-200/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:border-blue-300 transition-colors">
+              <img
+                src="/logo.jpg"
+                alt="Logo do Instituto de Olhos Cafelândia"
+                className="h-full w-auto object-contain max-h-8 sm:max-h-10"
+                loading="eager"
+              />
             </div>
             <div className="flex flex-col min-w-0">
               <span className="font-display font-bold text-sm xs:text-base sm:text-xl text-slate-900 tracking-tight leading-none group-hover:text-blue-700 transition-colors truncate">
                 Instituto de Olhos
               </span>
               <span className="text-[10px] sm:text-[11px] font-semibold text-blue-600 tracking-wider uppercase mt-0.5 truncate">
-                de Cafelândia
+                Cafelândia
               </span>
             </div>
           </a>

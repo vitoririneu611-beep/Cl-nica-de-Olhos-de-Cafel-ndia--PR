@@ -31,13 +31,13 @@ export const Services: React.FC<ServicesProps> = ({
   const getCategoryLabel = (category: ClinicService['category']) => {
     switch (category) {
       case 'consulta':
-        return 'Consulta Médica';
+        return 'Atendimento Clínico';
       case 'infantil':
-        return 'Oftalmopediatria';
+        return 'Desenvolvimento Infantil';
       case 'exame':
-        return 'Exame Complementar';
+        return 'Exame Diagnóstico';
       default:
-        return 'Procedimento Clínico';
+        return 'Atendimento Especializado';
     }
   };
 
@@ -57,8 +57,8 @@ export const Services: React.FC<ServicesProps> = ({
               Cuidado completo para a sua visão
             </h2>
             <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Apresentamos as principais avaliações oftalmológicas disponíveis para a sua família.
-              Serviços e exames adicionais são validados e atualizados periodicamente pela administração da clínica.
+              Apresentamos os principais atendimentos, exames e especialidades do Instituto de Olhos Cafelândia.
+              Cada área conta com profissionais dedicados ao diagnóstico preciso e ao desenvolvimento visual.
             </p>
           </div>
 

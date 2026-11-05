@@ -11,10 +11,10 @@ export const WhatsAppFloating: React.FC<WhatsAppFloatingProps> = ({ settings }) 
   const [showTooltip, setShowTooltip] = useState(true);
 
   const defaultMessage = encodeURIComponent(
-    'Olá! Gostaria de falar com a equipe do Instituto de Olhos de Cafelândia para tirar dúvidas e saber mais sobre consultas.'
+    'Olá! Acessei o site do Instituto de Olhos Cafelândia e gostaria de obter mais informações sobre os atendimentos.'
   );
 
-  const whatsappUrl = `https://wa.me/${settings.whatsappNumber}?text=${defaultMessage}`;
+  const whatsappUrl = `https://wa.me/5545999441123?text=${defaultMessage}`;
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end max-w-[calc(100vw-2rem)]">

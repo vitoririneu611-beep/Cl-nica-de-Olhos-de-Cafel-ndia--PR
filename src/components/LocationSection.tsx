@@ -9,7 +9,7 @@ interface LocationSectionProps {
 
 export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) => {
   const destinationAddress = encodeURIComponent(
-    'Rua Senador Nereu Ramos, 340, Centro, Cafelândia - PR, Brasil'
+    'Rua Senador Nereu Ramos, 340, Sala 01, Centro, Cafelândia - PR, 85415-000, Brasil'
   );
 
   const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${destinationAddress}`;
@@ -31,7 +31,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
           </h2>
           <p className="mt-2.5 text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
             Localização privilegiada e de fácil acesso no centro de Cafelândia, Paraná, 
-            com infraestrutura planejada para o seu conforto.
+            com infraestrutura planejada para o seu conforto e tranquilidade.
           </p>
         </div>
 
@@ -45,10 +45,10 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
               {/* Institution Identity */}
               <div>
                 <span className="text-[11px] sm:text-xs font-semibold text-blue-700 uppercase tracking-wider">
-                  Clínica Oftalmológica
+                  Clínica de Cuidados Visuais
                 </span>
                 <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mt-0.5">
-                  Instituto de Olhos de Cafelândia
+                  Instituto de Olhos Cafelândia
                 </h3>
               </div>
 
@@ -62,16 +62,13 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
                     Endereço Oficial
                   </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-900 mt-0.5">
-                    {settings.street}, nº {settings.number}
+                    Rua Senador Nereu Ramos, 340, Sala 01
                   </p>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Bairro {settings.neighborhood}
+                    Centro — Cafelândia - PR
                   </p>
-                  <p className="text-xs text-slate-600">
-                    {settings.city} — Estado do {settings.state}
-                  </p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    CEP: {settings.cep}
+                  <p className="text-[11px] text-slate-500 mt-0.5">
+                    CEP: 85415-000
                   </p>
                 </div>
               </div>
@@ -86,10 +83,10 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
                     Horário de Atendimento
                   </p>
                   <p className="text-xs sm:text-sm font-semibold text-slate-900 mt-0.5">
-                    {settings.operatingDays}
+                    Segunda a Sexta: 08h às 18h
                   </p>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    {settings.operatingHours}
+                    Sábado: 08h às 11h30
                   </p>
                 </div>
               </div>
@@ -102,11 +99,11 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-600">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                  <span>Acesso térreo com rampa de acessibilidade</span>
+                  <span>Acesso com rampa de acessibilidade</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-600">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                  <span>Recepção climatizada e atendimento com hora marcada</span>
+                  <span>Ambiente acolhedor e atendimento com hora marcada</span>
                 </div>
               </div>
 
@@ -125,8 +122,8 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
               </a>
 
               <a
-                href={`https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
-                  'Olá! Gostaria de orientações sobre como chegar ao Instituto de Olhos de Cafelândia.'
+                href={`https://wa.me/5545999441123?text=${encodeURIComponent(
+                  'Olá! Acessei o site do Instituto de Olhos Cafelândia e gostaria de obter mais informações sobre os atendimentos.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -142,7 +139,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
           {/* Right Column: Embedded Responsive Google Map */}
           <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 min-h-[280px] xs:min-h-[340px] sm:min-h-[380px] lg:min-h-[460px] relative">
             <iframe
-              title="Localização do Instituto de Olhos de Cafelândia no Google Maps"
+              title="Localização do Instituto de Olhos Cafelândia no Google Maps"
               src={googleMapsEmbedUrl}
               className="w-full h-full min-h-[280px] xs:min-h-[340px] sm:min-h-[380px] lg:min-h-[460px] border-0"
               loading="lazy"
@@ -152,7 +149,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ settings }) =>
             {/* Floating indicator */}
             <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl border border-slate-200/80 shadow-xs text-[10px] sm:text-[11px] text-slate-800 flex items-center gap-1.5 sm:gap-2 pointer-events-none max-w-[calc(100%-1.25rem)] truncate">
               <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-              <span className="font-semibold truncate">Rua Senador Nereu Ramos, 340</span>
+              <span className="font-semibold truncate">Rua Senador Nereu Ramos, 340, Sala 01</span>
               <span className="text-slate-400 shrink-0">· Cafelândia - PR</span>
             </div>
           </div>
