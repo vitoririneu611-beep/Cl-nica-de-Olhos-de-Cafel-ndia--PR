@@ -1,0 +1,6 @@
+{
+  "name": "Instituto de Olhos de Cafelândia",
+  "description": "Site institucional e agendamento online do Instituto de Olhos de Cafelândia no Paraná.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
