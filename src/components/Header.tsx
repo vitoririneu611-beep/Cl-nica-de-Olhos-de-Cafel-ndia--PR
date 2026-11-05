@@ -3,7 +3,7 @@ import { Menu, X, Calendar, Lock } from 'lucide-react';
 
 interface HeaderProps {
   onNavigate: (sectionId: string) => void;
-  onOpenAdmin: () => void;
+  onOpenAdmin?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAdmin }) => {
@@ -75,31 +75,31 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAdmin }) => {
             ))}
           </nav>
 
-          {/* Zone 3: 1 primary action + administrative portal */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          {/* Zone 3: Actions + Quadradinho de Acesso Administrativo no Canto */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={() => handleLinkClick('#agendamento')}
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap shrink-0 cursor-pointer min-h-[38px] sm:min-h-[42px]"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap shrink-0 cursor-pointer min-h-[38px] sm:min-h-[42px]"
             >
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-200" />
               <span className="hidden xs:inline">Agendar consulta</span>
               <span className="xs:hidden">Agendar</span>
             </button>
 
-            {/* Quiet admin login button (visible on sm+) */}
+            {/* Quadradinho no comecinho do site com símbolo específico */}
             <button
               onClick={onOpenAdmin}
-              className="hidden sm:inline-flex p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors min-h-[40px] min-w-[40px] items-center justify-center cursor-pointer"
-              title="Área Administrativa da Clínica"
-              aria-label="Acessar painel administrativo"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-700 border border-slate-200/90 hover:border-blue-300 flex items-center justify-center transition-all cursor-pointer shrink-0 shadow-2xs"
+              title="Área Administrativa"
+              aria-label="Abrir Área Administrativa"
             >
-              <Lock className="w-4 h-4" />
+              <Lock className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
             </button>
 
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer"
+              className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-xl hover:bg-slate-100 transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center cursor-pointer"
               aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -138,16 +138,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAdmin }) => {
                 >
                   <Calendar className="w-4 h-4 text-sky-200" />
                   Agendar consulta online
-                </button>
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenAdmin();
-                  }}
-                  className="w-full flex items-center justify-center gap-2 min-h-[42px] py-2.5 px-4 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-xl cursor-pointer"
-                >
-                  <Lock className="w-3.5 h-3.5" />
-                  Acesso Restrito / Painel Administrativo
                 </button>
               </div>
             </div>

@@ -157,7 +157,7 @@ const DEFAULT_SETTINGS: ClinicSettings = {
   operatingHours: 'Segunda a Sexta: 08h às 18h | Sábado: 08h às 11h30',
   operatingDays: 'Segunda a Sábado',
   email: 'contato@institutodeolhoscafelandia.com.br',
-  adminPin: 'clinica2026',
+  adminPin: 'Clinica2026',
   supabaseConnected: false,
 };
 

@@ -96,13 +96,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (pinInput.trim() === settings.adminPin || pinInput.trim() === 'clinica2026' || pinInput.trim() === '123456') {
+    const entered = pinInput.trim();
+    if (
+      entered === 'Clinica2026' ||
+      entered === 'clinica2026' ||
+      (settings.adminPin && entered.toLowerCase() === settings.adminPin.toLowerCase())
+    ) {
       setIsAuthenticated(true);
       sessionStorage.setItem('ioc_admin_auth', 'true');
       setAuthError('');
       setPinInput('');
     } else {
-      setAuthError('Senha incorreta. A senha padrão demonstrativa é: clinica2026');
+      setAuthError('Senha incorreta. Verifique a senha com a administração da clínica.');
     }
   };
 
@@ -189,18 +194,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
 
               <div>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-slate-900">
-                  Acesso Restrito à Equipe
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
+                  Área Administrativa
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  Área confidencial protegida por autenticação. Apenas colaboradores autorizados da clínica.
+                  Acesso restrito à equipe da clínica. Digite a senha para continuar.
                 </p>
               </div>
 
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 text-left mb-1">
-                    Senha de Acesso / PIN
+                  <label className="block text-xs font-bold text-slate-700 text-left mb-1.5">
+                    Senha de Acesso
                   </label>
                   <input
                     type="password"
@@ -210,9 +215,6 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     className="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-hidden min-h-[44px]"
                     autoFocus
                   />
-                  <p className="text-[11px] text-slate-400 text-left mt-1.5">
-                    Dica para avaliação/demonstração: use <code className="bg-slate-100 text-blue-800 px-1 py-0.5 rounded font-mono font-semibold">clinica2026</code>
-                  </p>
                 </div>
 
                 {authError && (
@@ -225,7 +227,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   type="submit"
                   className="w-full py-3 px-4 text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-xl shadow-xs transition-colors cursor-pointer min-h-[44px]"
                 >
-                  Entrar no Painel Administrativo
+                  Entrar na Área Administrativa
                 </button>
               </form>
             </div>
@@ -1243,6 +1245,27 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                           }}
                           className="w-full px-3 py-2 bg-white rounded-xl border border-slate-300"
                         />
+                      </div>
+                    </div>
+
+                    {/* Security & Access Password */}
+                    <div className="pt-3 border-t border-slate-200">
+                      <div className="max-w-xs">
+                        <label className="block text-slate-700 font-semibold mb-1">
+                          Senha de Acesso da Equipe (PIN) *
+                        </label>
+                        <input
+                          type="text"
+                          value={settings.adminPin || 'Clinica2026'}
+                          onChange={(e) => {
+                            dataService.updateSettings({ adminPin: e.target.value.trim() });
+                            refreshData();
+                          }}
+                          className="w-full px-3 py-2 bg-white rounded-xl border border-slate-300 font-mono text-sm"
+                        />
+                        <span className="text-[10px] text-slate-400 mt-1 block">
+                          Senha atual da clínica (definida como Clinica2026).
+                        </span>
                       </div>
                     </div>
                   </div>

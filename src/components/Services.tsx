@@ -5,13 +5,12 @@ import { Eye, Stethoscope, Baby, Clock, ArrowRight, X, Calendar, AlertCircle } f
 interface ServicesProps {
   services: ClinicService[];
   onSelectServiceForBooking: (serviceId: string) => void;
-  onOpenAdmin: () => void;
+  onOpenAdmin?: () => void;
 }
 
 export const Services: React.FC<ServicesProps> = ({
   services,
   onSelectServiceForBooking,
-  onOpenAdmin,
 }) => {
   const [selectedService, setSelectedService] = useState<ClinicService | null>(null);
 
@@ -60,15 +59,6 @@ export const Services: React.FC<ServicesProps> = ({
               Apresentamos os principais atendimentos, exames e especialidades do Instituto de Olhos Cafelândia.
               Cada área conta com profissionais dedicados ao diagnóstico preciso e ao desenvolvimento visual.
             </p>
-          </div>
-
-          <div className="text-left md:text-right shrink-0">
-            <button
-              onClick={onOpenAdmin}
-              className="text-xs font-medium text-slate-500 hover:text-blue-700 underline underline-offset-4 cursor-pointer"
-            >
-              Gerenciar serviços no painel administrativo
-            </button>
           </div>
         </div>
 

@@ -33,7 +33,19 @@ export default function App() {
       setServices(dataService.getServices());
       setSettings(dataService.getSettings());
     });
-    return () => unsubscribe();
+
+    const checkHash = () => {
+      if (window.location.hash === '#admin') {
+        setAdminOpen(true);
+      }
+    };
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('hashchange', checkHash);
+    };
   }, []);
 
   const handleNavigate = (sectionId: string) => {
@@ -77,14 +89,12 @@ export default function App() {
         <Doctors
           doctors={doctors}
           onSelectDoctorForBooking={handleSelectDoctorForBooking}
-          onOpenAdmin={() => setAdminOpen(true)}
         />
 
         {/* 5. Services Section */}
         <Services
           services={services}
           onSelectServiceForBooking={handleSelectServiceForBooking}
-          onOpenAdmin={() => setAdminOpen(true)}
         />
 
         {/* 6. Four Highlighted Institutional Flyers */}
@@ -125,7 +135,12 @@ export default function App() {
       {/* 11. Protected Administration Dashboard */}
       <AdminDashboard
         isOpen={adminOpen}
-        onClose={() => setAdminOpen(false)}
+        onClose={() => {
+          setAdminOpen(false);
+          if (window.location.hash === '#admin') {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }}
         doctors={doctors}
         services={services}
         settings={settings}

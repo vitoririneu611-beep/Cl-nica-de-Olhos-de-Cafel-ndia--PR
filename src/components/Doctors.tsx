@@ -1,17 +1,16 @@
 import React from 'react';
 import { Doctor } from '../types';
-import { Calendar, Award, GraduationCap, CheckCircle2, Edit3 } from 'lucide-react';
+import { Calendar, Award, GraduationCap, CheckCircle2 } from 'lucide-react';
 
 interface DoctorsProps {
   doctors: Doctor[];
   onSelectDoctorForBooking: (doctorId: string) => void;
-  onOpenAdmin: () => void;
+  onOpenAdmin?: () => void;
 }
 
 export const Doctors: React.FC<DoctorsProps> = ({
   doctors,
   onSelectDoctorForBooking,
-  onOpenAdmin,
 }) => {
   return (
     <section id="profissionais" className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-100 scroll-mt-10 relative">
@@ -37,22 +36,14 @@ export const Doctors: React.FC<DoctorsProps> = ({
             </p>
           </div>
 
-          {/* Transparent Notice / Direct Admin Portal */}
-          <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between gap-3 text-xs w-full md:w-auto md:max-w-md shrink-0">
+          {/* Transparent Notice */}
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-xs flex items-center gap-3 text-xs w-full md:w-auto md:max-w-md shrink-0">
             <div className="min-w-0">
               <p className="font-semibold text-slate-800 truncate">Atendimento Especializado</p>
               <p className="text-slate-500 text-[11px] leading-tight">
                 Cuidado dedicado e tecnologia diagnóstica em Cafelândia - PR.
               </p>
             </div>
-            <button
-              onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors cursor-pointer shrink-0 min-h-[36px]"
-              title="Acessar painel administrativo"
-            >
-              <Edit3 className="w-3.5 h-3.5" />
-              <span>Painel</span>
-            </button>
           </div>
         </div>
 
